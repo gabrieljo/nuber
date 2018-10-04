@@ -5,11 +5,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  BeforeInsert,
-  ManyToOne
+  BeforeInsert
 } from "typeorm";
 import { verificationTarget } from "../types/types";
-import User from "./User";
+
 const PHONE = "PHONE";
 const EMAIL = "EMAIL";
 @Entity()
@@ -23,15 +22,12 @@ class Verification extends BaseEntity {
   @Column({ type: "text" })
   key: string;
   @Column({ type: "boolean", default: false })
-  used: boolean;
-
+  verified: boolean;
   @CreateDateColumn()
   createdAt: string;
   @UpdateDateColumn()
   updatedAt: string;
   //이메일이나 전화 인증 처리 관계
-  @ManyToOne(type => User, user => user.verifications)
-  user: User;
 
   @BeforeInsert()
   createKey(): void {

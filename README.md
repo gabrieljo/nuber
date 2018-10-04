@@ -6,16 +6,19 @@ Server for the Uber clone from Gabriel, GraphQL, Typescript, NodeJS
 
 ### Public Resolvers;
 
-- [ ] Sign In / Up with Facebook
-- [ ] Sign In with Email
-- [ ] Sign up with Email
-- [ ] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
+- [x] Sign In / Up with Facebook
+- [x] Sign In with Email
+- [x] Sign up with Email
+- [x] Start Phone Number Verification
+- [x] Complete Phone Number Verification
 
-### Private Resolvers;
+### Authentication
 
 - [ ] Generate JWT
 - [ ] verify JWT
+
+### Private Resolvers;
+
 - [ ] Verify Email
 - [ ] Get My Profile
 - [ ] Update My Profile
