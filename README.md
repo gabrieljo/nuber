@@ -20,7 +20,7 @@ Server for the Uber clone from Gabriel, GraphQL, Typescript, NodeJS
 ### Private Resolvers;
 
 - [ ] Verify Email
-- [ ] Get My Profile
+- [x] Get My Profile
 - [ ] Update My Profile
 - [ ] Toggle Drive Mode
 - [ ] Report location / orientation
