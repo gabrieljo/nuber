@@ -1,18 +1,19 @@
 import { Resolvers } from "../../../types/resolvers";
 import {
-  EmailSignInMutationArgs,
-  EmailSignInResponse
+  EmailSignInResponse,
+  EmailSignUpMutationArgs
 } from "../../../types/graph";
 import User from "../../../entities/User";
 import createJWT from "../../../utils/createJWT";
-import Verification from "../../../entities/Verification";
+
 import { sendVerificationEmail } from "../../../utils/sendEmail";
+import Verification from "../../../entities/Verification";
 
 const resolvers: Resolvers = {
   Mutation: {
     EmailSignUp: async (
       _,
-      args: EmailSignInMutationArgs
+      args: EmailSignUpMutationArgs
     ): Promise<EmailSignInResponse> => {
       const { email } = args;
       try {
@@ -36,7 +37,7 @@ const resolvers: Resolvers = {
               const emailVerification = await Verification.create({
                 payload: newUser.email,
                 target: "EMAIL"
-              });
+              }).save();
               await sendVerificationEmail(
                 newUser.fullName,
                 emailVerification.key
