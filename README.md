@@ -22,15 +22,15 @@ Server for the Uber clone from Gabriel, GraphQL, Typescript, NodeJS
 - [x] Request Email verification
 - [x] complete Email verification
 - [x] Get My Profile
-- [ ] Get My Places
-- [ ] Update My Profile
-- [ ] Toggle Drive Mode
-- [ ] Report location / orientation
-- [ ] Add Place
-- [ ] Edit Place
-- [ ] Delete Place
-- [ ] See Nearby Drivers
-- [ ] Subscribe to Nearby drivers
+- [x] Get My Places
+- [x] Update My Profile
+- [x] Toggle Drive Mode
+- [x] Report location / orientation
+- [x] Add Place
+- [x] Edit Place
+- [x] Delete Place
+- [x] See Nearby Drivers
+- [x] Subscribe to Nearby drivers
 - [ ] Request a Ride
 - [ ] Get Nearby Rides
 - [ ] Subscribe to NearBy Ride Request
