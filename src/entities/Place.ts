@@ -30,7 +30,7 @@ class Place extends BaseEntity {
 
   //TypeORM은 기본적으로 대상의 relation을 로드하지 않음
   //아래와 같이 지정해서 필요한 컬럼만 받도록 처리
-  @Column({ type: "int", nullable: true })
+  @Column({ nullable: true })
   userId: number;
 
   @CreateDateColumn()
