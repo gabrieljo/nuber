@@ -15,6 +15,7 @@ import {
 import Chat from "./Chat";
 import Message from "./Message";
 import Ride from "./Ride";
+import Place from "./Place";
 
 const BCRYPT_ROUNDS = 10;
 
@@ -84,6 +85,9 @@ class User extends BaseEntity {
   @OneToMany(type => Ride, ride => ride.driver)
   ridesAsDriver: Ride[];
 
+  @OneToMany(type => Place, place => place.user)
+  places: Place[];
+
   @CreateDateColumn()
   createdAt: string;
 
@@ -97,7 +101,8 @@ class User extends BaseEntity {
   public comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
-
+  //BeforeUpdate는 사용자 정보 update시에 요청이 되지 않음 해당 메소드는 user instance가 업데이트 될때 요청됨
+  //user.save() 가 실행되어야 해당 함수들이 실행됨.
   @BeforeInsert()
   @BeforeUpdate()
   async savePassword(): Promise<void> {
