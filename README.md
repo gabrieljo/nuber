@@ -31,13 +31,16 @@ Server for the Uber clone from Gabriel, GraphQL, Typescript, NodeJS
 - [x] Delete Place
 - [x] See Nearby Drivers
 - [x] Subscribe to Nearby drivers
-- [ ] Request a Ride
-- [ ] Get Nearby Rides
-- [ ] Subscribe to NearBy Ride Request
+- [x] Request a Ride
+- [x] Get Nearby Rides
+- [x] Subscribe to NearBy Ride Request
+- [ ] Update Ride Status
+- [ ] Get Ride
 - [ ] Subscribe to Ride status
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
+- [ ] create chatroom
 
 ## Code challenge
 

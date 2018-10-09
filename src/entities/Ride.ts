@@ -5,10 +5,13 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne
+  ManyToOne,
+  OneToOne,
+  JoinColumn
 } from "typeorm";
 import { rideStatus } from "../types/types";
 import User from "./User";
+import Chat from "./Chat";
 
 @Entity()
 class Ride extends BaseEntity {
@@ -18,7 +21,7 @@ class Ride extends BaseEntity {
   @Column({
     type: "text",
     enum: ["ACCEPTED", "FINISHED", "CANCELED", "REQUESTING", "ONROUTE"],
-    default: "ACCEPTED"
+    default: "REQUESTING"
   })
   status: rideStatus;
   @Column({ type: "text" })
@@ -39,12 +42,23 @@ class Ride extends BaseEntity {
   duration: string;
   @Column({ type: "text" })
   distance: string;
-
+  //이렇게 하면 typeorm이 자동으로 데이터 베이스를 보지 않고도 id를 붙여서 반환
+  @Column({ nullable: true })
+  passengerId: number;
+  @Column({ nullable: true })
+  driverId: number;
   //유저 모델을 이용하여 탑승자인지 드라이버인지 관계처리
   @ManyToOne(type => User, user => user.ridesAsPassenger)
   passenger: User;
   @ManyToOne(type => User, user => user.ridesAsDriver, { nullable: true })
   driver: User;
+
+  @Column({ nullable: true })
+  chatId: number;
+
+  @OneToOne(type => Chat, chat => chat.ride, { nullable: true })
+  @JoinColumn()
+  chat: Chat;
 
   @CreateDateColumn()
   createdAt: string;
